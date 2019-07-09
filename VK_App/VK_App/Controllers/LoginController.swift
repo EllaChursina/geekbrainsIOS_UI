@@ -82,8 +82,8 @@ class LoginController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "LoginSegue",
-            userNameTextField.text == "admin",
-            passwordTextField.text == "123456" {
+            userNameTextField.text == "",
+            passwordTextField.text == "" {
             return true
         } else {
             return false
@@ -94,3 +94,29 @@ class LoginController: UIViewController {
     
 }
 
+/*import UIKit
+ 
+ class FriendsController: UITableViewController {
+ 
+ var namesOfFriend = [
+ "Саша Иванов",
+ "Дарья Петрова",
+ "Йося Кауфман",
+ "Анна Степанова",
+ "Мария Кац",
+ "Иван Сидоров",
+ "Моше Коэн"
+ ]
+ 
+ override func viewDidLoad() {
+ super.viewDidLoad()
+ }
+ 
+ override func didReceiveMemoryWarning() {
+ super.viewDidLoad()
+ }
+ override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+ return namesOfFriends.count
+ }
+ 
+ }*/
