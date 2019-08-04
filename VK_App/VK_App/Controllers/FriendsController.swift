@@ -10,19 +10,19 @@ import UIKit
 
 class FriendsController: UITableViewController {
     
-    var users = [
-        User(name: "Саша Рубенштейн", avatar: UIImage(named: "2")!, id: 0, photos: [UIImage(named: "1")!, UIImage(named: "9")!, UIImage(named: "10")!, UIImage(named: "11")!]),
-        User(name: "Дарья Петрова", avatar: UIImage(named: "3")!, id: 1, photos: [UIImage(named: "2c")!, UIImage(named: "3c")!]),
-        User(name: "Йося Кауфман", avatar: UIImage(named: "4")!, id: 2, photos: [UIImage(named: "5c")!, UIImage(named: "6c")!]),
-        User(name: "Анна Степанова", avatar: UIImage(named: "5")!, id: 3, photos: [UIImage(named: "7c")!]),
-        User(name: "Мария Кац", avatar: UIImage(named: "6")!, id: 4, photos: [UIImage(named: "2c")!, UIImage(named: "5c")!, UIImage(named: "8c")!]),
-        User(name: "Иван Сидоров", avatar: UIImage(named: "7")!, id: 5, photos: [UIImage(named: "10")!, UIImage(named: "9c")!, UIImage(named: "11")!, UIImage(named: "4c")!]),
-        User(name: "Моше Коэн", avatar: UIImage(named: "8")!, id: 6, photos: [UIImage(named: "9")!, UIImage(named: "5c")!, UIImage(named: "10c")!, UIImage(named: "7c")!])
+    let users = User.generateUsers()
+    
+    /*var users = [
+        User(name: "Саша Рубенштейн", avatar: UIImage(named: "2")!, photos: [UIImage(named: "1")!, UIImage(named: "9")!, UIImage(named: "10")!, UIImage(named: "11")!]),
+        User(name: "Дарья Петрова", avatar: UIImage(named: "3")!, photos: [UIImage(named: "2c")!, UIImage(named: "3c")!]),
+        User(name: "Йося Кауфман", avatar: UIImage(named: "4")!, photos: [UIImage(named: "5c")!, UIImage(named: "6c")!]),
+        User(name: "Анна Степанова", avatar: UIImage(named: "5")!, photos: [UIImage(named: "7c")!]),
+        User(name: "Мария Кац", avatar: UIImage(named: "6")!, photos: [UIImage(named: "2c")!, UIImage(named: "5c")!, UIImage(named: "8c")!]),
+        User(name: "Иван Сидоров", avatar: UIImage(named: "7")!, photos: [UIImage(named: "10")!, UIImage(named: "9c")!, UIImage(named: "11")!, UIImage(named: "4c")!]),
+        User(name: "Моше Коэн", avatar: UIImage(named: "8")!, photos: [UIImage(named: "9")!, UIImage(named: "5c")!, UIImage(named: "10c")!, UIImage(named: "7c")!])
         
-    ]
+    ]*/
 
-    
-    
     
     
     override func viewDidLoad() {
@@ -31,12 +31,6 @@ class FriendsController: UITableViewController {
        
     }
 
-    
-
-    /*override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }*/
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -56,6 +50,18 @@ class FriendsController: UITableViewController {
         cell.avatarView.image = friendAvatar
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FriendsPhotoSegue",
+            let indexPath = tableView.indexPathForSelectedRow,
+        let photoVC = segue.destination as? FriendsPhotoController{
+            let friend = users[indexPath.row]
+            let photos = friend.photos as! [UIImage]
+            
+            photoVC.photos = photos
+            
+        }
     }
     
 

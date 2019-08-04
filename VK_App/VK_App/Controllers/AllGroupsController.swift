@@ -15,7 +15,7 @@ class AllGroupsController: UITableViewController {
         Community(name: "Искусство", avatar: nil),
         Community(name: "Новая визуальная культура", avatar: nil),
         Community(name: "Кровосток", avatar: nil),
-        Community(name: "Батенька, да вы трансформе", avatar: nil),
+        Community(name: "Батенька, да вы трансформер", avatar: nil),
         Community(name: "Ботанический сад", avatar: nil)
         
     ]
@@ -41,7 +41,7 @@ class AllGroupsController: UITableViewController {
         let someCommunity = allCommunities[indexPath.row].name
         
         
-        cell.nameCommunities.text = someCommunity
+        cell.allNameCommunities.text = someCommunity
         
         
         return cell

@@ -55,7 +55,7 @@ class LoginController: UIViewController {
         print("username: \(userNameTextField.text ?? "")")
         print("username: \(passwordTextField.text ?? "")")
         
-        performSegue(withIdentifier: "LoginSegue", sender: nil)
+        //performSegue(withIdentifier: "LoginSegue", sender: nil)
         
     }
     

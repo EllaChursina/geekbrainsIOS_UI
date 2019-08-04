@@ -53,7 +53,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="logInButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffO-sh-zZ2"/>
-                                            <segue destination="Sxw-Vj-Ubk" kind="presentation" identifier="LoginSegue" id="AHW-h6-GYC"/>
+                                            <segue destination="Sxw-Vj-Ubk" kind="show" identifier="LoginSegue" id="AHW-h6-GYC"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rTLVJFJyjI4" translatesAutoresizingMaskIntoConstraints="NO" id="MBD-xt-Qhe">
@@ -147,7 +147,7 @@
                                 <connections>
                                     <outlet property="avatarView" destination="Lxa-z8-BHq" id="LPo-Za-CDR"/>
                                     <outlet property="friendName" destination="Udq-hz-14B" id="1re-fk-YcL"/>
-                                    <segue destination="vvc-83-g5K" kind="show" id="vN8-ij-8BO"/>
+                                    <segue destination="vvc-83-g5K" kind="show" identifier="FriendsPhotoSegue" id="vN8-ij-8BO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -264,6 +264,9 @@
                                     <constraint firstAttribute="bottom" secondItem="w6z-0p-fas" secondAttribute="bottom" id="bw8-2t-QhN"/>
                                     <constraint firstAttribute="trailing" secondItem="w6z-0p-fas" secondAttribute="trailing" id="kdZ-k2-18s"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="friendsPhoto" destination="w6z-0p-fas" id="BYS-wW-hlW"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -315,6 +318,10 @@
                                         <constraint firstItem="eed-2R-VPD" firstAttribute="top" secondItem="ehk-hE-frd" secondAttribute="topMargin" id="voP-M1-tyo"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="allAvatarCommunities" destination="eed-2R-VPD" id="u6o-rI-UXF"/>
+                                    <outlet property="allNameCommunities" destination="mRO-wQ-Sfv" id="0DT-3h-xCg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

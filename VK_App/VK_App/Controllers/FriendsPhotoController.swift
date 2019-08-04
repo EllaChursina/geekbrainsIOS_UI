@@ -11,26 +11,28 @@ import UIKit
 
 class FriendsPhotoController: UICollectionViewController {
     
+    
+    @IBOutlet var photosView: UICollectionView!
+    
+    var photos = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "FriendsPhotoCollectionViewCell")
+    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
 
    
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsPhotoCollectionViewCell", for: indexPath) as! FriendsPhotoCollectionViewCell
+        cell.friendsPhoto.image = photos[indexPath.item]
     
         // Configure the cell
     
