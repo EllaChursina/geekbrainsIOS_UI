@@ -14,10 +14,4 @@ class AllFriendsCell: UITableViewCell {
     @IBOutlet weak var friendName: UILabel!
     
     @IBOutlet weak var avatarView: UIImageView!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }
