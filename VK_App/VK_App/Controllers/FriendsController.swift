@@ -11,30 +11,40 @@ import UIKit
 class FriendsController: UITableViewController {
     
     let users = User.generateUsers()
+    var usersDictionary = [String: [User]]()
+    var userSectionTitles = [String]()
     
-    /*var users = [
-        User(name: "Саша Рубенштейн", avatar: UIImage(named: "2")!, photos: [UIImage(named: "1")!, UIImage(named: "9")!, UIImage(named: "10")!, UIImage(named: "11")!]),
-        User(name: "Дарья Петрова", avatar: UIImage(named: "3")!, photos: [UIImage(named: "2c")!, UIImage(named: "3c")!]),
-        User(name: "Йося Кауфман", avatar: UIImage(named: "4")!, photos: [UIImage(named: "5c")!, UIImage(named: "6c")!]),
-        User(name: "Анна Степанова", avatar: UIImage(named: "5")!, photos: [UIImage(named: "7c")!]),
-        User(name: "Мария Кац", avatar: UIImage(named: "6")!, photos: [UIImage(named: "2c")!, UIImage(named: "5c")!, UIImage(named: "8c")!]),
-        User(name: "Иван Сидоров", avatar: UIImage(named: "7")!, photos: [UIImage(named: "10")!, UIImage(named: "9c")!, UIImage(named: "11")!, UIImage(named: "4c")!]),
-        User(name: "Моше Коэн", avatar: UIImage(named: "8")!, photos: [UIImage(named: "9")!, UIImage(named: "5c")!, UIImage(named: "10c")!, UIImage(named: "7c")!])
-        
-    ]*/
-
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        for user in users {
+            let userKey = String(user.surname.prefix(1))
+            if var userValue = usersDictionary[userKey] {
+                userValue.append(user)
+                usersDictionary[userKey] = userValue
+            } else {
+                usersDictionary[userKey] = [user]
+            }
+        }
+        userSectionTitles = [String](usersDictionary.keys)
+        userSectionTitles = userSectionTitles.sorted(by: { $0 < $1 })
        
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return userSectionTitles.count
     }
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return users.count
+        let userKey = userSectionTitles[section]
+        if let userValue = usersDictionary[userKey] {
+            return userValue.count
+        }
+        return 0
+        
     }
 
     
@@ -42,15 +52,26 @@ class FriendsController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as?
             AllFriendsCell else { fatalError("Friend Cell cannot be dequeued")}
-        
-        let friend = users[indexPath.row].name
-        let friendAvatar = users[indexPath.row].avatar
-        
-        cell.friendName.text = friend
-        cell.avatarView.image = friendAvatar
-
+        let userKey = userSectionTitles[indexPath.section]
+        if let dictionaryByKey = usersDictionary[userKey] {
+            let user = dictionaryByKey[indexPath.row]
+            cell.friendName.text = user.fullName
+            cell.avatarView.image = user.avatar
+        } else {
+            print("Error")
+            
+        }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return userSectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return userSectionTitles
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FriendsPhotoSegue",

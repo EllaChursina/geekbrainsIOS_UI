@@ -16,15 +16,21 @@ class LoginController: UIViewController {
     
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet weak var vkLabelTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet var lc: LikeControl!
+    
+    
+    var wasAnimationShow = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        vkLabelTopConstraint.constant -= scrollView.bounds.height
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector:
             #selector(keyboardWasShown(notification:)), name:
             UIResponder.keyboardWillShowNotification, object: nil)
@@ -37,7 +43,19 @@ class LoginController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        CustomLoaderView.instance.showLoader()
+        UIView.animate(withDuration: 2.5, delay: 0,  animations: {() in
+            self.vkLabelTopConstraint.constant = 20
+            self.view.layoutIfNeeded()
+                
+        })
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        print("hide")
+        CustomLoaderView.instance.hideLoader()
+       }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -55,7 +73,6 @@ class LoginController: UIViewController {
         print("username: \(userNameTextField.text ?? "")")
         print("username: \(passwordTextField.text ?? "")")
         
-        //performSegue(withIdentifier: "LoginSegue", sender: nil)
         
     }
     
@@ -94,29 +111,4 @@ class LoginController: UIViewController {
     
 }
 
-/*import UIKit
- 
- class FriendsController: UITableViewController {
- 
- var namesOfFriend = [
- "Саша Иванов",
- "Дарья Петрова",
- "Йося Кауфман",
- "Анна Степанова",
- "Мария Кац",
- "Иван Сидоров",
- "Моше Коэн"
- ]
- 
- override func viewDidLoad() {
- super.viewDidLoad()
- }
- 
- override func didReceiveMemoryWarning() {
- super.viewDidLoad()
- }
- override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
- return namesOfFriends.count
- }
- 
- }*/
+

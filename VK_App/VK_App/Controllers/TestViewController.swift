@@ -10,6 +10,8 @@ import UIKit
 
 class TestViewController: UIViewController {
 
+    @IBAction func likeControl(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

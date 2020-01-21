@@ -11,7 +11,11 @@ import UIKit
 class AllFriendsCell: UITableViewCell {
   
     
-    @IBOutlet weak var friendName: UILabel!
+    @IBOutlet var friendName: UILabel! /*
+        didSet {
+            //self.friendName.textColor = UIColor.white
+        }
+    }*/
     
-    @IBOutlet weak var avatarView: UIImageView!
+    @IBOutlet var avatarView: UIImageView!
 }

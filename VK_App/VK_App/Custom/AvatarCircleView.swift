@@ -30,20 +30,22 @@ import UIKit
         self.layer.contents = nil
         let borderLayer = CAShapeLayer()
         borderLayer.contents = contents
-        let borderFrame = CGRect(x: 0, y: 0, width: bounds.width - 3, height: bounds.height - 3)
+        let borderFrame = CGRect(x: 0, y: 0, width: bounds.width - 5, height: bounds.height - 5)
         borderLayer.frame = borderFrame
-        borderLayer.cornerRadius = bounds.width/2
         borderLayer.masksToBounds = true
+        borderLayer.cornerRadius = bounds.width/2 - 2.5
         let shadowLayer = CAShapeLayer()
         shadowLayer.path = UIBezierPath(ovalIn: bounds).cgPath
         shadowLayer.fillColor = UIColor.clear.cgColor
         shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        shadowLayer.shadowOpacity = 0.5
-        shadowLayer.shadowRadius = 2
+        shadowLayer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        shadowLayer.shadowOpacity = 0.2
+        shadowLayer.shadowRadius = 1.5
         shadowLayer.shadowColor = UIColor.black.cgColor
         shadowLayer.backgroundColor = UIColor.black.cgColor
         self.layer.addSublayer(shadowLayer)
         self.layer.addSublayer(borderLayer)
+        
+        
     }
 }
