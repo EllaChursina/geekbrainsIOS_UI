@@ -21,13 +21,20 @@ class LoginController: UIViewController {
     @IBOutlet var lc: LikeControl!
     
     
+   
+    
+    
     var wasAnimationShow = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         vkLabelTopConstraint.constant -= scrollView.bounds.height
+        self.view.isUserInteractionEnabled = true
+        self.scrollView.isUserInteractionEnabled = true
+        
     }
     
+  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,10 +58,11 @@ class LoginController: UIViewController {
         })
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+   
+    
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("hide")
-        CustomLoaderView.instance.hideLoader()
+        CustomLoaderView.instance.hideMyLoader()
        }
 
     override func viewDidDisappear(_ animated: Bool) {

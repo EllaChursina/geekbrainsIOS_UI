@@ -176,10 +176,10 @@
 				FA131BD322D3A00000DFA836 /* Controllers */,
 				FA131BDB22D4F71A00DFA836 /* Cells */,
 				FA131BD422D3A03C00DFA836 /* Models */,
-				FA28D1FE22C51F1F00431D03 /* Main.storyboard */,
 				FA28D20422C51F2A00431D03 /* Assets.xcassets */,
 				FA28D20622C51F2A00431D03 /* LaunchScreen.storyboard */,
 				FA28D20922C51F2A00431D03 /* Info.plist */,
+				FA28D1FE22C51F1F00431D03 /* Main.storyboard */,
 				FA28D20122C51F1F00431D03 /* VK_App.xcdatamodeld */,
 			);
 			path = VK_App;
