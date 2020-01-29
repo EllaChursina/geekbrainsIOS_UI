@@ -27,7 +27,4 @@ class AvatarCircleView: UIView {
         self.layer.backgroundColor = UIColor.black.cgColor
         self.layer.masksToBounds = false
     }
-    
-    
-    
 }
