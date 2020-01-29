@@ -56,7 +56,7 @@ class FriendsController: UITableViewController {
         if let dictionaryByKey = usersDictionary[userKey] {
             let user = dictionaryByKey[indexPath.row]
             cell.friendName.text = user.fullName
-            cell.avatarView.image = user.avatar
+            cell.circleAvatarImageView.image = user.avatar
         } else {
             print("Error")
             
@@ -66,6 +66,10 @@ class FriendsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return userSectionTitles[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
