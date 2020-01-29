@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD2FD77B23CDD42A0069D3C2 /* CustomLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2FD77A23CDD42A0069D3C2 /* CustomLoaderView.swift */; };
 		CD2FD77D23CDE8960069D3C2 /* DotLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2FD77C23CDE8960069D3C2 /* DotLoaderView.swift */; };
+		CD76EAA123E1CB7200C50344 /* CircleAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD76EAA023E1CB7200C50344 /* CircleAvatarImageView.swift */; };
 		FA131BDA22D3B2D200DFA836 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA131BD922D3B2D200DFA836 /* FriendsController.swift */; };
 		FA131BDD22D4F77E00DFA836 /* AllFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA131BDC22D4F77E00DFA836 /* AllFriendsCell.swift */; };
 		FA131BE122D5047A00DFA836 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA131BE022D5047A00DFA836 /* User.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		CD2FD77A23CDD42A0069D3C2 /* CustomLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoaderView.swift; sourceTree = "<group>"; };
 		CD2FD77C23CDE8960069D3C2 /* DotLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLoaderView.swift; sourceTree = "<group>"; };
+		CD76EAA023E1CB7200C50344 /* CircleAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatarImageView.swift; sourceTree = "<group>"; };
 		FA131BD922D3B2D200DFA836 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		FA131BDC22D4F77E00DFA836 /* AllFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllFriendsCell.swift; sourceTree = "<group>"; };
 		FA131BE022D5047A00DFA836 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6C90DA2309417B00713ABC /* AvatarCircleView.swift */,
+				CD76EAA023E1CB7200C50344 /* CircleAvatarImageView.swift */,
 				FA70D745230DB3E600A78B87 /* LikeControl.swift */,
 				CD2FD77A23CDD42A0069D3C2 /* CustomLoaderView.swift */,
 				CD2FD77C23CDE8960069D3C2 /* DotLoaderView.swift */,
@@ -365,6 +368,7 @@
 				CD2FD77B23CDD42A0069D3C2 /* CustomLoaderView.swift in Sources */,
 				FA33F269231C2D0300F95A28 /* News.swift in Sources */,
 				FA131BEB22D51C8100DFA836 /* Community.swift in Sources */,
+				CD76EAA123E1CB7200C50344 /* CircleAvatarImageView.swift in Sources */,
 				CD2FD77D23CDE8960069D3C2 /* DotLoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

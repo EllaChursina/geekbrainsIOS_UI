@@ -8,44 +8,26 @@
 
 import UIKit
 
-@IBDesignable class AvatarCircleView: UIImageView {
-
-    @IBInspectable var shadowRadius: CGFloat = 10.0{
-        didSet {
-            setNeedsDisplay()
-        }
-    }
-    @IBInspectable var shadowColor: UIColor = .black{
-        didSet {
-            setNeedsDisplay()
-        }
-    }
+class AvatarCircleView: UIView {
+    
     
     override class var layerClass: AnyClass {
         return CAShapeLayer.self
     }
-
+    
     override func layoutSubviews() {
-        guard let contents = self.layer.contents else {return}
-        self.layer.contents = nil
-        let borderLayer = CAShapeLayer()
-        borderLayer.contents = contents
-        let borderFrame = CGRect(x: 0, y: 0, width: bounds.width - 5, height: bounds.height - 5)
-        borderLayer.frame = borderFrame
-        borderLayer.masksToBounds = true
-        borderLayer.cornerRadius = bounds.width/2 - 2.5
-        let shadowLayer = CAShapeLayer()
-        shadowLayer.path = UIBezierPath(ovalIn: bounds).cgPath
-        shadowLayer.fillColor = UIColor.clear.cgColor
-        shadowLayer.shadowPath = shadowLayer.path
-        shadowLayer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        shadowLayer.shadowOpacity = 0.2
-        shadowLayer.shadowRadius = 1.5
-        shadowLayer.shadowColor = UIColor.black.cgColor
-        shadowLayer.backgroundColor = UIColor.black.cgColor
-        self.layer.addSublayer(shadowLayer)
-        self.layer.addSublayer(borderLayer)
-        
-        
+        super.layoutSubviews()
+        self.layer.cornerRadius = self.bounds.height/2
+        self.clipsToBounds = true
+        self.layer.shadowPath = UIBezierPath(ovalIn: bounds).cgPath
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 5
+        self.layer.backgroundColor = UIColor.black.cgColor
+        self.layer.masksToBounds = false
     }
+    
+    
+    
 }

@@ -17,5 +17,14 @@ class AllFriendsCell: UITableViewCell {
         }
     }*/
     
-    @IBOutlet var avatarView: UIImageView!
+    @IBOutlet var avatarView: AvatarCircleView!
+    
+    
+    @IBOutlet weak var circleAvatarImageView: CircleAvatarImageView!
+    
+
+    
+    
+    
+    
 }
