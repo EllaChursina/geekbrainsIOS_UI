@@ -11,12 +11,12 @@ import UIKit
 class AllGroupsController: UITableViewController {
 
     var allCommunities = [
-        Community(name: "Метро Петербурга", avatar: nil),
-        Community(name: "Искусство", avatar: nil),
-        Community(name: "Новая визуальная культура", avatar: nil),
-        Community(name: "Кровосток", avatar: nil),
-        Community(name: "Батенька, да вы трансформер", avatar: nil),
-        Community(name: "Ботанический сад", avatar: nil)
+        Community(name: "Метро Петербурга", avatar: UIImage(named: "metro")!),
+        Community(name: "Искусство", avatar: UIImage(named: "art")!),
+        Community(name: "Новая визуальная культура", avatar: UIImage(named: "newvisualculture")!),
+        Community(name: "Кровосток", avatar: UIImage(named: "krovostock")!),
+        Community(name: "Батенька, да вы трансформер", avatar: UIImage(named: "batenka")!),
+        Community(name: "Ботанический сад", avatar: UIImage(named: "botanicgarden")!)
         
     ]
     override func viewDidLoad() {
@@ -39,12 +39,42 @@ class AllGroupsController: UITableViewController {
             CommunitiesCell else { fatalError("Cell cannot be dequeued")}
         
         let someCommunity = allCommunities[indexPath.row].name
-        
+        let someAvatar = allCommunities[indexPath.row].avatar
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))
+        tapGestureRecognizer.numberOfTouchesRequired = 1
         
         cell.allNameCommunities.text = someCommunity
-        
-        
+        cell.allAvatarCommunities.image = someAvatar
+        cell.allAvatarCommunitiesView.tag = indexPath.row
+        cell.allAvatarCommunitiesView.isUserInteractionEnabled = true
+        cell.allAvatarCommunitiesView.addGestureRecognizer(tapGestureRecognizer)
         return cell
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+           let avatarView = tapGestureRecognizer.view! as! AvatarCircleView
+           print("your taped image view tag is: \(avatarView.tag) ")
+           UIView.animate(withDuration: 0.25,
+                          delay: 0,
+                          options: [],
+                          animations: {
+                           avatarView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                           
+           }) { (true) in
+               UIView.animate(withDuration: 0.25,
+                                     delay: 0,
+                                     usingSpringWithDamping: 0.5,
+                                     initialSpringVelocity: 0,
+                                     options: [],
+                                     animations: {
+                                      avatarView.transform = CGAffineTransform(scaleX: 1, y: 1)
+           })
+           }
+       }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
 
 }

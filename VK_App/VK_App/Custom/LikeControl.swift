@@ -67,22 +67,19 @@ import UIKit
     }
 
     @objc private func selectLike(_ sender: UIButton) {
+        UIView.transition(with: likeButton,
+                          duration: 1, options: .transitionFlipFromLeft,
+                          animations: {
+                            self.likeButton.isSelected = true
+        },
+                          completion: nil)
         self.toggleLikedState()
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     override func layoutSubviews() {
         super.layoutSubviews()
         stackView.frame = bounds
     }
-    
     
     private func toggleLikedState() {
         self.isLiked = !self.isLiked
@@ -90,16 +87,24 @@ import UIKit
     
     private func renderLiked() {
         print("render as liked")
-        likeButton.setBackgroundImage(selectedImage, for: .normal)
+        UIView.transition(with: likeButton,
+                          duration: 1, options: .transitionFlipFromLeft,
+                          animations: {
+                            self.likeButton.isSelected = true
+        },
+                          completion: nil)
         likesCounterLabel.text = String(likeCounter)
-        //todo
     }
     
     private func renderNotLiked() {
-        likeButton.setBackgroundImage(normalImage, for: .normal)
         print("render as not liked")
+        UIView.transition(with: likeButton,
+                          duration: 0.8, options: .transitionFlipFromLeft,
+                          animations: {
+                            self.likeButton.isSelected = false
+        },
+                          completion: nil)
         likesCounterLabel.text = String(likeCounter)
-        //todo
     }
 
 }

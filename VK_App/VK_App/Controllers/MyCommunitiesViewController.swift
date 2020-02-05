@@ -11,12 +11,12 @@ import UIKit
 class MyCommunitiesViewController: UITableViewController {
 
     var myCommunities = [
-        Community(name: "Привет! Как дела?", avatar: nil),
-        Community(name: "Geekbrains", avatar: nil),
-        Community(name: "Намочи манту", avatar: nil),
-        Community(name: "Лентач", avatar: nil),
-        Community(name: "Женская власть", avatar: nil),
-        Community(name: "Русский шаффл", avatar: nil)
+        Community(name: "Привет! Как дела?", avatar: UIImage(named: "privet")!),
+        Community(name: "Geekbrains", avatar: UIImage(named: "geekbrains")!),
+        Community(name: "Намочи манту", avatar: UIImage(named: "namochi")!),
+        Community(name: "Лентач", avatar: UIImage(named: "lentach")!),
+        Community(name: "Женская власть", avatar: UIImage(named: "femalepower")!),
+        Community(name: "Русский шаффл", avatar: UIImage(named: "russiansuffle")!)
         
     ]
     override func viewDidLoad() {
@@ -40,66 +40,40 @@ class MyCommunitiesViewController: UITableViewController {
         
         let someCommunity = myCommunities[indexPath.row].name
         let someAvatar = myCommunities[indexPath.row].avatar
-        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))
+        tapGestureRecognizer.numberOfTouchesRequired = 1
         cell.nameCommunities.text = someCommunity
         cell.avatarCommunities.image = someAvatar
+        cell.avatarCommunitiesView.tag = indexPath.row
+        cell.avatarCommunitiesView.isUserInteractionEnabled = true
+        cell.avatarCommunitiesView.addGestureRecognizer(tapGestureRecognizer)
         
         return cell
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let avatarView = tapGestureRecognizer.view! as! AvatarCircleView
+        print("your taped image view tag is: \(avatarView.tag) ")
+        UIView.animate(withDuration: 0.25,
+                       delay: 0,
+                       options: [],
+                       animations: {
+                        avatarView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                        
+        }) { (true) in
+            UIView.animate(withDuration: 0.25,
+                                  delay: 0,
+                                  usingSpringWithDamping: 0.5,
+                                  initialSpringVelocity: 0,
+                                  options: [],
+                                  animations: {
+                                   avatarView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

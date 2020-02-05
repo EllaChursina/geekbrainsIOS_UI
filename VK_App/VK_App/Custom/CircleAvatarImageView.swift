@@ -16,6 +16,7 @@ class CircleAvatarImageView: UIImageView {
 
       override init(frame: CGRect) {
           super.init(frame: frame)
+          self.isUserInteractionEnabled = true
       }
 
       required init?(coder aDecoder: NSCoder) {
@@ -27,5 +28,4 @@ class CircleAvatarImageView: UIImageView {
           self.layer.cornerRadius = self.frame.size.height / 2
           self.clipsToBounds = true
       }
-
 }

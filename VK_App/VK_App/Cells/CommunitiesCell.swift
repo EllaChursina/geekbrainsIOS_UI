@@ -15,9 +15,13 @@ class CommunitiesCell: UITableViewCell {
     
     @IBOutlet weak var nameCommunities: UILabel!
     
+    @IBOutlet weak var avatarCommunitiesView: AvatarCircleView!
+    
     @IBOutlet weak var allAvatarCommunities: UIImageView!
     
     @IBOutlet weak var allNameCommunities: UILabel!
+    
+    @IBOutlet weak var allAvatarCommunitiesView: AvatarCircleView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

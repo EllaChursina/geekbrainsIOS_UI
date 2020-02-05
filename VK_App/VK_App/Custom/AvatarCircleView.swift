@@ -24,7 +24,7 @@ class AvatarCircleView: UIView {
         self.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 5
-        self.layer.backgroundColor = UIColor.black.cgColor
+        self.layer.backgroundColor = nil 
         self.layer.masksToBounds = false
     }
 }
