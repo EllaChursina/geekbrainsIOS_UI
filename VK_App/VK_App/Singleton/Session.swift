@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Session {
+    
+    static let instance = Session()
+    
+    let token = ""
+    let userId: Int = 0
+    
+    private init() {}
+}
