@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -264,7 +264,7 @@
         <scene sceneID="6Wd-rZ-KIT">
             <objects>
                 <collectionViewController storyboardIdentifier="FriendsPhotoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vvc-83-g5K" customClass="FriendsPhotoController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="6qg-Pl-LWo">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="6qg-Pl-LWo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -275,27 +275,28 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendsPhotoCollectionViewCell" id="mtR-Ln-07E" customClass="FriendsPhotoCollectionViewCell" customModule="VK_App" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" semanticContentAttribute="spatial" reuseIdentifier="FriendsPhotoCollectionViewCell" id="mtR-Ln-07E" customClass="FriendsPhotoCollectionViewCell" customModule="VK_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w6z-0p-fas">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w6z-0p-fas">
+                                            <rect key="frame" x="5" y="5" width="140" height="140"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="2Hg-FA-ZY4"/>
                                                 <constraint firstAttribute="height" constant="150" id="7JS-Nu-PYH"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="G0L-ew-5TG"/>
+                                                <constraint firstAttribute="height" constant="150" id="G0L-ew-5TG"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="w6z-0p-fas" firstAttribute="leading" secondItem="mtR-Ln-07E" secondAttribute="leading" id="R4G-Gt-R0k"/>
-                                    <constraint firstAttribute="bottom" secondItem="w6z-0p-fas" secondAttribute="bottom" id="bw8-2t-QhN"/>
-                                    <constraint firstAttribute="trailing" secondItem="w6z-0p-fas" secondAttribute="trailing" id="kdZ-k2-18s"/>
+                                    <constraint firstItem="w6z-0p-fas" firstAttribute="leading" secondItem="mtR-Ln-07E" secondAttribute="leading" constant="5" id="R4G-Gt-R0k"/>
+                                    <constraint firstAttribute="bottom" secondItem="w6z-0p-fas" secondAttribute="bottom" constant="5" id="ZZc-49-25z"/>
+                                    <constraint firstAttribute="trailing" secondItem="w6z-0p-fas" secondAttribute="trailing" constant="5" id="kdZ-k2-18s"/>
+                                    <constraint firstItem="w6z-0p-fas" firstAttribute="top" secondItem="mtR-Ln-07E" secondAttribute="top" constant="5" id="meS-AZ-x0c"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="friendsPhoto" destination="w6z-0p-fas" id="BYS-wW-hlW"/>
@@ -307,10 +308,13 @@
                             <outlet property="delegate" destination="vvc-83-g5K" id="v1I-GX-uEs"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="photosView" destination="6qg-Pl-LWo" id="1Ku-Yl-RHn"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9t-hr-cky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512" y="502"/>
+            <point key="canvasLocation" x="2511.594202898551" y="501.5625"/>
         </scene>
         <!--All Groups Controller-->
         <scene sceneID="yG8-3Q-vmq">
@@ -464,6 +468,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKz-uh-nz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1045" y="1157"/>
+        </scene>
+        <!--Detail Friends Photo Controller-->
+        <scene sceneID="d8F-NF-3pF">
+            <objects>
+                <viewController storyboardIdentifier="DetailFriendsPhotoController" id="SVt-89-FH7" customClass="DetailFriendsPhotoController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="DetailFriendsPhoto" id="nZu-co-jNo" customClass="DetailFriendsPhotoController" customModule="VK_App" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-Qf-MdA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="r9S-Qf-MdA" firstAttribute="top" secondItem="HXU-oS-IrK" secondAttribute="top" id="2gE-JR-stD"/>
+                            <constraint firstItem="r9S-Qf-MdA" firstAttribute="leading" secondItem="HXU-oS-IrK" secondAttribute="leading" id="URp-vq-eT1"/>
+                            <constraint firstItem="HXU-oS-IrK" firstAttribute="trailing" secondItem="r9S-Qf-MdA" secondAttribute="trailing" id="XON-1P-qKI"/>
+                            <constraint firstItem="HXU-oS-IrK" firstAttribute="bottom" secondItem="r9S-Qf-MdA" secondAttribute="bottom" id="afe-WJ-hYS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HXU-oS-IrK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lwx-Qg-iiJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IAe-fc-Mcz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3279.7101449275365" y="501.5625"/>
         </scene>
     </scenes>
     <resources>
